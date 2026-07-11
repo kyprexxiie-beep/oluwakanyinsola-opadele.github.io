@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oluwakanyinsola Opadele — Writer &amp; Storyteller</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Literata:ital,opsz,wght@0,16..30,400;0,16..30,500;1,16..30,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#241019;
+    --bg-deep:#1a0b12;
+    --surface:#341623;
+    --surface-2:#3d1a29;
+    --gold:#C9A227;
+    --gold-soft:#E3C567;
+    --rose:#E8B4B8;
+    --text:#F5ECE0;
+    --text-muted:#B9A0A2;
+    --rule: rgba(245,236,224,0.14);
+    --rule-strong: rgba(245,236,224,0.28);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Literata', serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--gold); color:var(--bg-deep);}
+
+  .wrap{max-width:820px; margin:0 auto; padding:0 28px;}
+
+  a{color:var(--gold-soft);}
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--rose);
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:26px; height:1px;
+    background:var(--rose);
+    display:inline-block;
+  }
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    position:relative;
+    padding:90px 0 70px;
+    border-bottom:1px solid var(--rule);
+    background:
+      radial-gradient(ellipse 700px 420px at 82% -10%, rgba(201,162,39,0.16), transparent 60%),
+      radial-gradient(ellipse 500px 380px at 5% 110%, rgba(232,180,184,0.10), transparent 60%);
+  }
+  .masthead-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--text-muted);
+    margin-bottom:26px;
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1px solid var(--rule);
+    padding-bottom:14px;
+  }
+  h1.name{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:clamp(40px, 7vw, 68px);
+    line-height:1.02;
+    margin:0 0 4px;
+    letter-spacing:-0.01em;
+  }
+  h1.name em{
+    font-style:italic;
+    font-weight:400;
+    color:var(--gold-soft);
+  }
+  .tagline{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13.5px;
+    letter-spacing:0.06em;
+    color:var(--rose);
+    margin:14px 0 28px;
+    text-transform:uppercase;
+  }
+  .bio{
+    font-size:18px;
+    max-width:620px;
+    color:var(--text);
+    margin:0 0 34px;
+  }
+  .bio .dropcap{
+    float:left;
+    font-family:'Fraunces', serif;
+    font-size:64px;
+    line-height:0.8;
+    font-weight:500;
+    padding:6px 10px 0 0;
+    color:var(--gold);
+  }
+  .cta-row{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:12px 20px;
+    border-radius:2px;
+    display:inline-block;
+    transition:all .15s ease;
+  }
+  .btn-primary{background:var(--gold); color:var(--bg-deep); font-weight:500;}
+  .btn-primary:hover{background:var(--gold-soft);}
+  .btn-ghost{border:1px solid var(--rule-strong); color:var(--text);}
+  .btn-ghost:hover{border-color:var(--gold); color:var(--gold-soft);}
+
+  /* ---------- CONTENTS NAV ---------- */
+  nav.toc{
+    padding:26px 0;
+    border-bottom:1px solid var(--rule);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+  }
+  nav.toc .wrap{display:flex; gap:28px; flex-wrap:wrap;}
+  nav.toc a{color:var(--text-muted); text-decoration:none; border-bottom:1px solid transparent;}
+  nav.toc a:hover{color:var(--gold-soft); border-bottom-color:var(--gold-soft);}
+
+  /* ---------- SECTIONS ---------- */
+  section.block{padding:70px 0; border-bottom:1px solid var(--rule);}
+  section.block:last-of-type{border-bottom:none;}
+  .section-title{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-style:italic;
+    font-size:clamp(26px,4vw,34px);
+    margin:14px 0 10px;
+  }
+  .section-intro{
+    color:var(--text-muted);
+    font-size:15.5px;
+    max-width:560px;
+    margin-bottom:44px;
+  }
+
+  /* ---------- PIECE CARD ---------- */
+  .piece{
+    background:var(--surface);
+    border:1px solid var(--rule);
+    border-radius:3px;
+    margin-bottom:22px;
+    overflow:hidden;
+  }
+  .piece-head{padding:26px 28px;}
+  .piece-tags{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--gold-soft);
+    margin-bottom:10px;
+  }
+  .piece-tags span{color:var(--text-muted); margin-left:10px;}
+  .piece h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:23px;
+    margin:0 0 10px;
+    line-height:1.25;
+  }
+  .piece .dek{
+    color:var(--text-muted);
+    font-size:15px;
+    margin:0;
+  }
+  details.piece-body{border-top:1px solid var(--rule);}
+  details.piece-body summary{
+    cursor:pointer;
+    list-style:none;
+    padding:16px 28px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--gold);
+    background:var(--surface-2);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  details.piece-body summary::-webkit-details-marker{display:none;}
+  details.piece-body summary::after{content:"read the full piece  +"; }
+  details.piece-body[open] summary::after{content:"collapse  –";}
+  .piece-full{padding:30px 28px 36px; font-size:16.5px;}
+  .piece-full p{margin:0 0 18px;}
+  .piece-full p:last-child{margin-bottom:0;}
+  .piece-full strong{color:var(--gold-soft); font-weight:500;}
+
+  /* Press release specific look */
+  .release-tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--bg-deep);
+    background:var(--gold);
+    display:inline-block;
+    padding:4px 10px;
+    margin-bottom:14px;
+  }
+  .piece-full h4{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:19px;
+    color:var(--rose);
+    margin:26px 0 12px;
+  }
+
+  /* ---------- BOOK ---------- */
+  .book-card{
+    display:flex;
+    gap:28px;
+    align-items:center;
+    background:linear-gradient(135deg, var(--surface), var(--surface-2));
+    border:1px solid var(--rule);
+    border-radius:3px;
+    padding:34px;
+  }
+  .book-spine{
+    flex:0 0 74px;
+    height:110px;
+    background:linear-gradient(160deg, var(--gold), #8a6c14);
+    border-radius:2px;
+    box-shadow:4px 4px 0 rgba(0,0,0,0.25);
+  }
+  .book-card h3{font-family:'Fraunces', serif; font-style:italic; font-weight:500; font-size:26px; margin:0 0 8px;}
+  .book-card p{color:var(--text-muted); font-size:15px; margin:0;}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:60px 0 80px;}
+  footer .section-title{margin-top:0;}
+  .contact-grid{display:flex; gap:40px; flex-wrap:wrap; margin-top:22px;}
+  .contact-item .label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--text-muted);
+    display:block;
+    margin-bottom:6px;
+  }
+  .contact-item a{
+    font-family:'Fraunces', serif;
+    font-size:19px;
+    text-decoration:none;
+    border-bottom:1px solid var(--rule-strong);
+    padding-bottom:2px;
+  }
+  .contact-item a:hover{border-color:var(--gold);}
+  .sign-off{
+    margin-top:60px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    letter-spacing:0.06em;
+    color:var(--text-muted);
+    text-transform:uppercase;
+    border-top:1px solid var(--rule);
+    padding-top:20px;
+  }
+
+  @media (max-width:600px){
+    header.hero{padding:60px 0 50px;}
+    section.block{padding:50px 0;}
+    .book-card{flex-direction:column; align-items:flex-start;}
+    nav.toc .wrap{gap:16px 22px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="masthead-label">
+      <span>Portfolio — Est. 2025</span>
+      <span>London, UK</span>
+    </div>
+    <span class="eyebrow">Writer · Journalist · Copy &amp; Brand Voice</span>
+    <h1 class="name">Oluwakanyinsola<br><em>Opadele</em></h1>
+    <p class="tagline">Essays · Talks · PR &amp; Marketing Copy</p>
+    <p class="bio"><span class="dropcap">I</span> write about the things people go quiet about — race, gender, masculinity, faith — and I write the copy that gets brands, shows, and causes talked about. I'm a first-year Media &amp; Communications student at the University of Greenwich, a contributor to the <em>Greenwich Daily</em>, and the author of <em>She's HER.</em> My interests sit at the intersection of storytelling, marketing, and branding — anywhere a message needs to land.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:Kyprexxiie@gmail.com">Email me</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/oluwakanyinsola-opadele-62441538b" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-ghost" href="#book">She's HER.</a>
+    </div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="wrap">
+    <a href="#essays">01 — Essays &amp; Features</a>
+    <a href="#talks">02 — Talks &amp; Presentations</a>
+    <a href="#pr">03 — PR &amp; Copywriting</a>
+    <a href="#book">04 — The Book</a>
+    <a href="#contact">05 — Contact</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- ESSAYS -->
+  <section class="block" id="essays">
+    <span class="eyebrow">01 — Personal &amp; cultural essays</span>
+    <h2 class="section-title">Long-form writing</h2>
+    <p class="section-intro">Reported and personal essays on race, gender, and the systems that decide whose pain gets believed.</p>
+
+    <article class="piece">
+      <div class="piece-head">
+        <div class="piece-tags">Personal Essay <span>· Race &amp; Gender · Unpublished</span></div>
+        <h3>Still Not Believed: When Black Women Scream and No One Listens</h3>
+        <p class="dek">On rape, disbelief, and the "lone parent" label — an essay on the system that chooses silence over Black women, written in response to the film <em>Straw</em>.</p>
+      </div>
+      <details class="piece-body">
+        <summary>Read the full piece</summary>
+        <div class="piece-full">
+          <p>There's a kind of pain that only whispers, because when it screams — no one listens. That's what it's like to be a Black woman who has been raped. Silenced. Disbelieved. Put on trial for surviving.</p>
+          <p>In the film <em>Straw</em>, we see what so many Black girls already know: that the world will pick apart our trauma before it protects us. That our tears are questioned. That our pain is inconvenient. That if you're a Black woman, especially from a "certain kind of home," the first assumption isn't that you were harmed. It's that you're lying.</p>
+          <p>Let's talk about what it means to be a Black woman and a victim in a world that protects power, not people. Because when you're not just a woman — but a Black one — the burden doubles. We are expected to endure, to forgive, to "not make a scene." And if we dare to speak? They say we're angry. Bitter. Unstable. Lying. How do you prove a wound you weren't allowed to show?</p>
+          <h4>Lone Mothers, Not Lonely People</h4>
+          <p>The system calls Black single mothers "lone parents." Lone, like they chose isolation. Lone, like they're raising terrorists. Lone, like they are society's mistake.</p>
+          <p>But these same systems don't whisper when a white single father collects government benefits. They don't blink when both-parent households produce the same violence they accuse us of. They don't ask how a woman became a "lone parent." Was she left? Was she abused? Was she widowed? They don't care. Because Blackness, in their eyes, must always come with blame.</p>
+          <p>And so our children grow up being profiled before they even speak. "You know he doesn't have a dad." "You know she's from that estate." "You know what they say about boys raised by women." Yes — boys raised by women. By strong women. By tired women who still show up. By broken women who never stopped loving. But the state doesn't honour them. It labels them.</p>
+          <h4>Black Fatigue is Real</h4>
+          <p>There's a weariness that lives in our bones. It's called Black fatigue — the exhaustion that comes from constantly defending your existence. From walking into a room already expected to fail. From knowing that even if you do everything right, the system will still find a way to pin you to the ground.</p>
+          <p>And this fatigue affects our communities like poison in the water. Mothers too tired to cry. Fathers numbing pain with silence or survival. Children raised to expect judgment instead of grace. And when we do speak, when we do ask for help, they call it manipulation. They say we're "playing the victim." They remind us of every other Black person who "cheated the system" and use it as proof that none of us deserve rest. But what they refuse to see is that we are not the ones failing the system. The system is failing us.</p>
+          <h4>When Will They Believe Us?</h4>
+          <p>This world owes Black women an apology. For the rape cases thrown out without care. For the mothers made to feel like burdens. For the children punished for growing up too fast. For the silence. The headlines that never came. The justice that never arrived.</p>
+          <p>But more than an apology, we want change. We want courtrooms that treat our voices like evidence. We want media that doesn't demonize our motherhood. We want benefits that support, not shame. We want children raised by love — not headlines.</p>
+          <p>And we will write about it. We will film it. We will create art that screams louder than their dismissal. Because the truth is, Black women are not asking for special treatment. We're asking to be seen. To be heard. To be safe. And if the world won't give us that — we'll build our own.</p>
+        </div>
+      </details>
+    </article>
+
+    <article class="piece">
+      <div class="piece-head">
+        <div class="piece-tags">Long-form Essay <span>· Masculinity &amp; Relationships · Unpublished</span></div>
+        <h3>Men, Masculinity &amp; the Weight of Expectation</h3>
+        <p class="dek">Why women's power shouldn't threaten love, and why men deserve better than silence — drawing on interviews, literature (Ibsen, Rossetti, Brontë), and scripture to make the case for a healthier masculinity.</p>
+      </div>
+      <details class="piece-body">
+        <summary>Read the full piece</summary>
+        <div class="piece-full">
+          <p>Society loves neat definitions. It loves to put people into boxes where life feels easier to explain and easier to control. Women were boxed into obedience, purity, softness, and sacrifice. Men were boxed into strength, provision, invincibility, and emotional silence. Different cages. Same prison.</p>
+          <p>When I spoke with men — real men, young men, older men, African men, British men, religious men, logical men — they said almost the same thing in different words: "We were boxed into strength, provision and emotional silence." "Society expects men to provide, protect and perform." "We are allowed to feel… in theory. But not really." "Masculinity helps… but it hurts too. And most men are lonely."</p>
+          <p>There was pain in their honesty. Not a loud pain. Not crying pain. But the quiet, exhausted kind. The kind men swallow and bury because the world told them "be a man, don't fall apart." And that's the problem.</p>
+          <h4>The Myth of the Unbreakable Man</h4>
+          <p>Society built a version of masculinity that sounds powerful but is actually suffocating: be strong, don't cry, provide or you're useless, lead even if you're lost, love without expecting care back, struggle in silence, rescue everyone but yourself. Men became human armour. Human ATMs. Human emotional walls. Anger is acceptable. Silence is acceptable. Stoicism is admirable. But sadness, fear, confusion, vulnerability? Unacceptable. Weak. Unmanly.</p>
+          <p>So men hide — behind humour, behind work, behind dominance, behind "I'm fine." And yet these same men desperately want to be seen, loved, understood and emotionally safe, but the world punished them whenever they tried. When life shifts — when women earn more, lead more, move forward quicker — it doesn't just challenge ego. It challenges identity, because society didn't just tell men what to do. It told them this is who you are.</p>
+          <h4>Real Life: Where Theory Hurts Human Hearts</h4>
+          <p>Women are now educated, earning, leading, building — and many men genuinely celebrate that. But society built masculinity so tightly around power and provision that when a woman becomes powerful, some men don't feel partnered, they feel replaced. Not because she did wrong, but because everything he was taught about worth is being threatened. So instead of saying "I feel scared, I feel like I'm losing relevance, I need reassurance," many men withdraw, compete, or shut down. That is not evil — it is wounded masculinity acting like it was programmed to. But it still hurts the women who work hard, love deeply, and are sometimes punished for their competence instead of valued for it.</p>
+          <h4>Ibsen, Rossetti, Brontë &amp; the Literary Mirror</h4>
+          <p>Henrik Ibsen saw this decades ago in <em>A Doll's House</em>. Torvald Helmer wasn't abusive — he was emotionally limited, respectable, socially approved, but emotionally shallow. Nora sacrificed everything for him, but he loved the idea of her, not her humanity. Christina Rossetti wrote about women silenced and absorbed into expectations that never fed them back. Emily Brontë's <em>Wuthering Heights</em> shows love turned destructive when ego and repression guide men more than tenderness. Literature has been saying the same thing for a century: when masculinity is defined only by control and suppression, love becomes performance, not connection.</p>
+          <h4>Biblical Truth: Men Were Never Made to Be Emotionless</h4>
+          <p>Even scripture, before culture twisted it, never demanded emotionless men. David wept and wrote psalms dripping in emotion. Jesus wept. Moses struggled. Job confessed pain. Jacob wrestled with fear. The instruction was never "men must not feel" — it was "love your wives," "dwell with them in understanding," love sacrificially and tenderly. Real headship is not domination. It is emotional security, spiritual grounding, and partnership.</p>
+          <h4>A Call to Men, Women, Society &amp; Love</h4>
+          <p>To men: you deserve softness, emotional safety, and to be human, not just useful — but healing requires naming feelings without shame and leading with humility, not ego. To women: stop shrinking to protect fragile masculinity; you are not wrong for being successful. To relationships: build teamwork, not a battlefield of ego. To society: raise boys with tenderness and normalise emotional intelligence.</p>
+          <p>We don't need men to be less. We need them to be free — from emotional prisons, from unrealistic expectations, from the shame of feeling. And we don't need women to shrink. We need them to shine. The strongest families aren't built when men dominate and women endure, but when both stand tall beside each other. Not "who leads?" but "how do we walk together?" That, right there, is the future.</p>
+        </div>
+      </details>
+    </article>
+  </section>
+
+  <!-- TALKS -->
+  <section class="block" id="talks">
+    <span class="eyebrow">02 — Talks &amp; presentations</span>
+    <h2 class="section-title">Speaking &amp; performance</h2>
+    <p class="section-intro">Written and delivered for a university assessment — theory-grounded, personal, and built to be spoken aloud.</p>
+
+    <article class="piece">
+      <div class="piece-head">
+        <div class="piece-tags">Presentation Script <span>· Media Theory · University of Greenwich, 2025</span></div>
+        <h3>Exploring Identity: Black Women in Media</h3>
+        <p class="dek">A presentation connecting feminist and postcolonial theory — Crenshaw, hooks, Ibsen, Rossetti — to lived experience and my own book, <em>She's HER.</em></p>
+      </div>
+      <details class="piece-body">
+        <summary>Read the full piece</summary>
+        <div class="piece-full">
+          <p>Today I'm sharing more than theory — I'm sharing a story of survival, identity, and hope. This is a piece of me, a piece of my book, and a piece of women everywhere who have been silenced and misrepresented.</p>
+          <h4>Why This Topic?</h4>
+          <p>When I wrote <em>She's HER.</em> and my article on Black women, I realised representation isn't just media — it's life. Media teaches us who we are, and sometimes, it teaches the world to devalue us before we've even spoken. For women, especially Black women, that mirror is cracked. But when we speak, when we write, when we reflect, we begin to heal the reflection.</p>
+          <h4>Connecting to Theory</h4>
+          <p>Feminist theory tells us women have been reduced to narrow roles: the mother, the wife, the angel in the house, or the sinner. In the Victorian era, women were expected to be seen but not heard. Christina Rossetti wrote poems that showed women's sacrifice and silence. Henrik Ibsen's <em>A Doll's House</em> gave us Nora, who slammed the door on that silence — walking out to find her voice.</p>
+          <p>But for Black women, patriarchy goes further. We are not only told to be quiet, we're told that when we do speak, our voices are too loud, too angry, too much. Postcolonial theory helps us see this double burden. Kimberlé Crenshaw (1989) called it intersectionality — being hit by two cars at once, racism and sexism, and then being asked why you're lying on the floor. bell hooks (1992) reminds us that Black women's images have been manipulated and exploited in popular culture. From the Victorian era to today's TikTok feeds, patriarchy still controls who gets to be the main character, and who is pushed into the background.</p>
+          <h4>Black Women in Media</h4>
+          <p>Black women are hypersexualised, reduced to entertainment, or erased completely. Reality TV makes us drama or comic relief. Social media crowns us "strong Black women" — powerful, yes, but denied softness, vulnerability, rest. Society wants us to be the hype girl, the healer, the backbone, the comic — everything except the lead character in our own story.</p>
+          <h4>My Story (Broken Yet Whole)</h4>
+          <p>How do you rebuild when life has broken you apart? In <em>She's HER.</em>, I told my journey from loss and betrayal to healing and hope. I learned that my scars were not shame — they were proof of survival. This is bigger than me. This is the story of women everywhere who've been told they are too broken, too loud, too weak. The truth? We are broken, yet whole. Scarred, yet beautiful. Wounded, yet worthy. And every one of us deserves to be seen.</p>
+          <h4>Social Reality (UK Context)</h4>
+          <p>Lone mothers — Black and white — are demonised in Britain today. It's the old Victorian script, recycled, but now printed in bold font. The truth? Mothers are carrying entire worlds. We need a media that sees mothers not as burdens, but as builders.</p>
+          <h4>Hope &amp; Moving Forward</h4>
+          <p>Media can change. It must change, by listening — by letting women, especially Black women, tell our full, complicated truths. We are not just stereotypes. We are creators, thinkers, leaders, mothers, survivors. We don't just deserve seats at the table. We are the table. We are not side characters. We have always been the main story. The world is just catching up.</p>
+        </div>
+      </details>
+    </article>
+  </section>
+
+  <!-- PR & COPYWRITING -->
+  <section class="block" id="pr">
+    <span class="eyebrow">03 — PR &amp; copywriting</span>
+    <h2 class="section-title">Press releases</h2>
+    <p class="section-intro">Event and brand press releases written in industry format — embargo lines, quotes, notes to editors, and boilerplate.</p>
+
+    <article class="piece">
+      <div class="piece-head">
+        <div class="piece-tags">Press Release <span>· Live Events / Music</span></div>
+        <h3>Overmono Present Pure Devotion at Old Royal Naval College</h3>
+        <p class="dek">First-ever live electronic act to headline the UNESCO World Heritage Site, as part of Labyrinth on the Thames 2026.</p>
+      </div>
+      <details class="piece-body">
+        <summary>Read the full piece</summary>
+        <div class="piece-full">
+          <span class="release-tag">Embargoed until 12pm, Tuesday 20th January 2026</span>
+          <p><strong>OVERMONO PRESENT PURE DEVOTION</strong><br>First ever live electronic act to headline London's Old Royal Naval College, a UNESCO World Heritage Site — 7th August 2026. London exclusive: Overmono's only capital show of the summer. Pre-sale tickets on sale 28th January at 10am GMT / 11am CET.</p>
+          <p>London, UK — Tuesday 20th January 2026 — Labyrinth Events, the UK's pioneering independent promoter synonymous with staging pioneering live music experiences in unique spaces, is proud to announce the first headliner for the highly anticipated return of the spectacular open-air live music series, Labyrinth on the Thames this summer.</p>
+          <p>On 7th August 2026, acclaimed electronic duo Overmono will make history as the first-ever live electronic act to headline London's iconic Old Royal Naval College, a UNESCO World Heritage Site. The performance will be Overmono's only London show of the summer, marking a landmark moment for brothers Tom and Ed and the capital's cultural calendar.</p>
+          <p>Following a defining year of headline performances at Glastonbury, All Points East, Boomtown, Love Saves The Day, The Warehouse Project and, most recently, a sold-out show at London's iconic 10,000-capacity Alexandra Palace, Overmono have cemented their status as one of the UK's most vital live electronic acts. The bill features Erika de Casier live, a b2b from Nick Leon &amp; Verraco, Loukeman, Carista, and Leod.</p>
+          <p>Their reimagining of High Contrast's "If We Ever" became a viral festival anthem, while their collaboration with Joy Orbison on "Lippy" showcased their continued evolution in the studio. Their acclaimed 2023 debut album <em>Good Lies</em>, alongside collaborations with Fred again.., Lil Yachty and Kwengface, have positioned Overmono among the most influential UK electronic acts of their generation.</p>
+          <p>The date forms part of Labyrinth on the Thames 2026, an open-air series celebrating contemporary music across the first three weekends of August. Running from afternoon into night until 11pm, the showcase will transform the 17th-century riverside landmark into an unforgettable global dance destination against the backdrop of the Thames and London's skyline. Lighting and visual production is delivered by High Scream, the studio behind productions at Madison Square Garden, Coachella, and landmark Ibiza residencies.</p>
+          <h4>Notes to Editors</h4>
+          <p><strong>Press Contacts:</strong> Harry Wilton, Alex Sutton<br><strong>About Labyrinth Events:</strong> An independent promoter, curator, and production company staging pioneering live music experiences in unique spaces since 2017, from disused Edwardian tube stations to UNESCO World Heritage Sites, working with artists including Jungle, Black Coffee, Solomun, Fatboy Slim and Fred again..<br><strong>About Old Royal Naval College:</strong> The centrepiece of Maritime Greenwich, a UNESCO World Heritage Site with a 600-year history, attracting over 800,000 visitors a year and run by the charitable Greenwich Foundation.</p>
+        </div>
+      </details>
+    </article>
+
+    <article class="piece">
+      <div class="piece-head">
+        <div class="piece-tags">Press Release <span>· Theatre / Comedy</span></div>
+        <h3>The Crawl — Greenwich Theatre</h3>
+        <p class="dek">A splash-hit physical comedy about rivalry, self-acceptance, and what it really means to win — touring the UK this May.</p>
+      </div>
+      <details class="piece-body">
+        <summary>Read the full piece</summary>
+        <div class="piece-full">
+          <p><strong>THE CRAWL</strong><br>Greenwich Theatre, Crooms Hill, London SE10 8ES<br>Thursday 21 May – Saturday 23 May 2026, 7PM</p>
+          <p>In this splash-hit comedy performance, two swimmers go head-to-head in the race of a lifetime — on a stage with no water. Featuring physical storytelling and larger-than-life characters, <em>The Crawl</em> dives into a world of absurd rivalry, exploring what it really means to win.</p>
+          <p><em>The Crawl</em> is an original comedy created in Paris during the buzz of the 2024 Olympics. Two performers portray athletes, commentators, organisers and more — all navigating the pressures of competition. With audience members cheering on as fans and even stepping into the story (Chad the lifeguard is not to be missed), the show invites everyone into the joyful chaos. It's a warm, whimsical reminder for audiences of all ages that play can be powerful and that not every competition needs a winner.</p>
+          <p>Director Olivia Zerphy comments that the show takes the familiar setting of a swim race and turns it on its head, transforming it into a whirlwind of imagination and surprise — beneath the laughter and chaos is a tender story about self-acceptance, the pressure to win, and the quiet triumph of choosing your own way forward.</p>
+          <p>Hailed by British Theatre Guide, Broadway World, Theatre Weekly and Three Weeks, <em>The Crawl</em> is a riotous, bubbly show with a heartwarming undercurrent. After a successful run at the 2025 Edinburgh Fringe and performances in France and Poland, <em>The Crawl</em> will be touring the UK this May.</p>
+          <h4>Notes to Editors</h4>
+          <p><strong>Running Time:</strong> 60 minutes<br><strong>Performance Dates:</strong> 21, 22 &amp; 23 May<br><strong>Box Office:</strong> £16.50 (£14 concession)<br><strong>Performers:</strong> Ellie Whitaker, Alexander Burnett<br><strong>Director:</strong> Olivia Zerphy · <strong>Composer:</strong> Andrés Hernández · <strong>Lighting Design:</strong> Jodie Underwood<br><strong>Guidance:</strong> 8+ · <strong>Social:</strong> @thecrawl.show</p>
+        </div>
+      </details>
+    </article>
+  </section>
+
+  <!-- BOOK -->
+  <section class="block" id="book">
+    <span class="eyebrow">04 — Published work</span>
+    <h2 class="section-title">The book</h2>
+    <div class="book-card">
+      <div class="book-spine"></div>
+      <div>
+        <h3>She's HER.</h3>
+        <p>A book on loss, betrayal, healing, and hope — the foundation for my writing on identity and representation. Published 2025. <a href="#" target="_blank" rel="noopener">Find it on Selar →</a></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <span class="eyebrow">05 — Get in touch</span>
+    <h2 class="section-title">Let's work together</h2>
+    <p class="section-intro">Open to part-time and hybrid roles in content, marketing, PR, and social — and to freelance writing and ghostwriting work.</p>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <span class="label">Email</span>
+        <a href="mailto:Kyprexxiie@gmail.com">Kyprexxiie@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <span class="label">LinkedIn</span>
+        <a href="https://www.linkedin.com/in/oluwakanyinsola-opadele-62441538b" target="_blank" rel="noopener">linkedin.com/in/oluwakanyinsola-opadele</a>
+      </div>
+      <div class="contact-item">
+        <span class="label">Byline</span>
+        <a href="#">Greenwich Daily</a>
+      </div>
+    </div>
+    <p class="sign-off">Oluwakanyinsola Opadele — Media &amp; Communications, University of Greenwich · Portfolio updated 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
